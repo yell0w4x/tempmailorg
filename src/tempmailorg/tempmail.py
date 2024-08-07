@@ -44,8 +44,9 @@ class TempMail(object):
         return ''.join(random.choice(alphabet) for _ in range(8))
 
 
-    def make_email_address(self):
-        username = self.make_user_name()
+    def make_email_address(self, username=None):
+        if username is None:
+            username = self.make_user_name()
         domain = random.choice(self.available_domains())
         return f'{username}{domain}'
 
